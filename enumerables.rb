@@ -70,11 +70,35 @@ class Array
         dup
     end 
 
-    
+    def my_join(arg = "")
+        newstr = ""
+        self.length.times do |idx|
+            if idx == self.length - 1
+                newstr += self[idx]
+            else
+                newstr += self[idx] + arg
+            end
+        end
+        newstr
+    end
+
+    def my_reverse
+        final = []
+        i = self.length - 1
+        while i >= 0
+            final << self[i]
+            i -= 1
+        end
+        final
+    end
 
 end
 
-
+a = [ "a", "b", "c", "d" ]
+p a.my_join         # => "abcd"
+p a.my_join("$")    # => "a$b$c$d"
+# p [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
+# p [ 1 ].my_reverse               #=> [1]
 
 
 # a = [ 4, 5, 6 ]
